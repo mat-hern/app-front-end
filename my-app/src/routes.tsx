@@ -1,7 +1,8 @@
 import { createBrowserRouter, type RouteObject } from "react-router-dom";
-import Layout from "./components/main-layout/layout";
-import Login from "./pages /login/login";
-import MyDevices from "./pages /my-devices/my-devices";
+import Layout from "./shared/components/main-layout/layout";
+import Login from "./shared/pages /login/login";
+import MyDevices from "./shared/pages /my-devices/my-devices";
+import ProtectedRoute from "./shared/components/protected-route";
 
 export const routes: RouteObject[] = [
   {
@@ -15,7 +16,11 @@ export const routes: RouteObject[] = [
       },
       {
         path: 'my-devices',
-        element: <MyDevices/>
+        element: ( 
+        <ProtectedRoute>
+          <MyDevices/>
+        </ProtectedRoute>
+        )
       },
     ],
   },

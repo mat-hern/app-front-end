@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux"
-import type { RootState } from "../../store"
 import { decrement, increment } from "../../reducers/counterSlice";
+import type { RootState } from "@reduxjs/toolkit/query";
 
 export default function MyDevices() {
-    const count = useSelector((state: RootState) => state.counter.value);
+    const count = useSelector((state: RootState) => state.counter.auth);
     const dispatch =  useDispatch();
     return (
     <div>
